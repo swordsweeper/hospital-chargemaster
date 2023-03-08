@@ -35,7 +35,7 @@ for entry in soup.find_all('a', href=True):
     if '.xlsx' in download_url:  
         index += 1
         if(index > 5):
-            break
+            pass#break
 
         filename =  os.path.basename(download_url.split('?')[0])  
 

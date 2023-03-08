@@ -5,6 +5,7 @@ from glob import glob
 import json
 import pandas
 import datetime
+import sys
 
 skip_rows = 1
 #file = '630909073_saint-vincents-blount_standardcharges.xlsx'
@@ -62,11 +63,14 @@ for result in results:
 
     if not os.path.exists(filename):
         print('%s is not found in latest folder.' % filename)
-        sys.exit(1)
+        #sys.exit(1)
+        continue
 
     if os.stat(filename).st_size == 0:
         print('%s is empty, skipping.' % filename)
-        sys.exit(1)
+        continue
+        #sys.exit(1)
+
 
     print("Parsing %s" % filename)
     for col in all_columns:
